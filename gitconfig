@@ -1,0 +1,17 @@
+[color]
+	ui = true
+[color "diff"]
+	meta = cyan
+[user]
+	name = Roman Kuznietsov
+	email = roman.kuznietsov@gmail.com
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	lo = "log --pretty=format:\"%h | %ad | %s%d [%an]\" --graph --date=iso"
+	ds = diff --staged
+[push]
+	default = simple
