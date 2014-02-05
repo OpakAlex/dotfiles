@@ -36,7 +36,6 @@ Bundle 'oscarh/vimerl'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'elzr/vim-json'
-
 " Bundle 'tpope/vim-cucumber'
 " Bundle 'artemave/slowdown.vim'
 
@@ -45,10 +44,6 @@ syntax on
 
 colorscheme nature
 
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
 nmap <silent> <leader>f :CommandT<CR>
 nmap <silent> <leader>b :CommandTBuffer<CR>
 nmap          <leader>r :CommandTFlush<CR>
@@ -61,7 +56,6 @@ command! Conf source ~/.vimrc
 command! Spec Start! bundle exec rspec %; read
 command! Cuke Start! bundle exec cucumber %; read
 
-
 let g:CommandTMaxFiles = 100000
 let g:CommandTMaxHeight = 16
 let g:CommandTWildIgnore=&wildignore . ",**/.bundle/*,**/node_modules/*,**/bower_components/*"
@@ -73,7 +67,7 @@ function! StripTrailingWhite()
 	call winrestview(l:winview)
 endfunction
 
-au BufWritePre *.{c,h,cpp,hpp,rb,haml,slim,coffee,js,yml,css,scss,sass,prawn,feature}  call StripTrailingWhite()
+au BufWritePre *.{c,h,cpp,hpp,rb,haml,slim,coffee,js,yml,css,scss,sass,feature}  call StripTrailingWhite()
 au FileType c,cpp setl sw=4 sts=4 noet
 au FileType javascript,json,html setl sw=4 sts=4 et
 au FileType ruby,yaml,haml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
