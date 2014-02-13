@@ -14,15 +14,12 @@ export TERM=xterm-256color
 alias -r l='ls -lh'
 alias -r v='vim'
 alias -r g='git'
-alias -r gf='git flow'
 alias -r t='tmux attach || tmux'
 alias -r pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
-alias -r bx='bundle exec'
-alias -r mpq='mysql --host=78.140.128.249 --user=query --password=qWb7ix}s6oJC+g --skip-secure-auth wz'
 
 eval "$(rbenv init -)"
 
-PATH=./bin:$PATH
+PATH=./bin:~/bin:$PATH
 
 # perl stuff
 PATH="/Users/romankuznietsov/perl5/bin${PATH+:}$PATH";
