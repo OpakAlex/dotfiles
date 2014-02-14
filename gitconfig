@@ -13,5 +13,7 @@
 	st = status
 	lo = "log --pretty=format:\"%h | %ad | %s%d [%an]\" --graph --date=iso"
 	ds = diff --staged
+	pr = pull --rebase
+	pp = !sh -c \"git pull && git push\"
 [push]
 	default = simple

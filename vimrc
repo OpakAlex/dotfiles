@@ -12,6 +12,8 @@ set ignorecase
 set smartcase
 set so=50
 set ruler
+set encoding=utf8
+setglobal fileencoding=utf8
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -36,8 +38,8 @@ Bundle 'oscarh/vimerl'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'elzr/vim-json'
-" Bundle 'tpope/vim-cucumber'
 " Bundle 'artemave/slowdown.vim'
+" Bundle 'tpope/vim-cucumber'
 
 filetype plugin indent on
 syntax on
