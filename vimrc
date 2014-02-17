@@ -69,6 +69,13 @@ function! StripTrailingWhite()
 	call winrestview(l:winview)
 endfunction
 
+function! Indent()
+	let p = getpos(".")
+	normal! gg=G
+	call setpos(".",p)
+endfunction
+nmap <silent> <leader>i :call Indent()<CR>
+
 au BufWritePre *.{c,h,cpp,hpp,rb,haml,slim,coffee,js,yml,css,scss,sass,feature}  call StripTrailingWhite()
 au FileType c,cpp setl sw=4 sts=4 noet
 au FileType javascript,json,html setl sw=4 sts=4 et
