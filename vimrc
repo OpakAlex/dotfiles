@@ -51,7 +51,7 @@ nmap <silent> <leader>b :CommandTBuffer<CR>
 nmap          <leader>r :CommandTFlush<CR>
 nmap          <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
 nmap          <leader>c :exe "Start! bundle exec cucumber %:" . line(".") . "; read"<CR>
-nmap          <leader>m :exe "Start! mocha --compilers coffee:coffee-script %; read"<CR>
+nmap          <leader>m :exe "Start! mocha --compilers coffee:coffee-script/register %; read"<CR>
 nmap <silent> <leader>h :set hlsearch!<CR>
 
 command! Conf source ~/.vimrc
