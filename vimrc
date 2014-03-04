@@ -19,6 +19,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" general
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
@@ -28,18 +29,21 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
+
+" language-specific
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'yaml.vim'
-Bundle 'oscarh/vimerl'
-Bundle 'elixir-lang/vim-elixir'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'elzr/vim-json'
-" Bundle 'artemave/slowdown.vim'
+
+" Bundle 'yaml.vim'
+" Bundle 'oscarh/vimerl'
+" Bundle 'elixir-lang/vim-elixir'
+" Bundle 'tpope/vim-haml'
 " Bundle 'tpope/vim-cucumber'
+" Bundle 'artemave/slowdown.vim'
 
 filetype plugin indent on
 syntax on
@@ -60,7 +64,7 @@ command! Cuke Start! bundle exec cucumber %; read
 
 let g:CommandTMaxFiles = 100000
 let g:CommandTMaxHeight = 16
-let g:CommandTWildIgnore=&wildignore . ",**/.bundle/*,**/node_modules/*,**/bower_components/*"
+let g:CommandTWildIgnore=&wildignore . ",**/.bundle/*,**/node_modules/*,**/bower_components/*,**/target/*"
 let g:C_Ctrl_j='off'
 
 function! StripTrailingWhite()
@@ -76,7 +80,8 @@ function! Indent()
 endfunction
 nmap <silent> <leader>i :call Indent()<CR>
 
-au BufWritePre *.{c,h,cpp,hpp,rb,haml,slim,coffee,js,yml,css,scss,sass,feature}  call StripTrailingWhite()
+au BufWritePre *.{rb,coffee,js,json,clj}  call StripTrailingWhite()
+
 au FileType c,cpp setl sw=4 sts=4 noet
 au FileType javascript,json,html setl sw=4 sts=4 et
 au FileType ruby,yaml,haml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
