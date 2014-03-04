@@ -54,18 +54,15 @@ nmap <silent> <leader>f :CommandT<CR>
 nmap <silent> <leader>b :CommandTBuffer<CR>
 nmap          <leader>r :CommandTFlush<CR>
 nmap          <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
-nmap          <leader>c :exe "Start! bundle exec cucumber %:" . line(".") . "; read"<CR>
 nmap          <leader>m :exe "Start! mocha --compilers coffee:coffee-script/register %; read"<CR>
 nmap <silent> <leader>h :set hlsearch!<CR>
 
 command! Conf source ~/.vimrc
 command! Spec Start! bundle exec rspec %; read
-command! Cuke Start! bundle exec cucumber %; read
 
 let g:CommandTMaxFiles = 100000
 let g:CommandTMaxHeight = 16
 let g:CommandTWildIgnore=&wildignore . ",**/.bundle/*,**/node_modules/*,**/bower_components/*,**/target/*"
-let g:C_Ctrl_j='off'
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
