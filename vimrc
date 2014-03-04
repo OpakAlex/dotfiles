@@ -24,7 +24,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tsaleh/vim-supertab'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
@@ -50,19 +50,17 @@ syntax on
 
 colorscheme nature
 
-nmap <silent> <leader>f :CommandT<CR>
-nmap <silent> <leader>b :CommandTBuffer<CR>
-nmap          <leader>r :CommandTFlush<CR>
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|node_modules|bower_components|target)$'}
+let g:ctrlp_show_hidden = 1
+
+nmap <silent> <leader>r :exe "CtrlPClearCache"<CR>
 nmap          <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
 nmap          <leader>m :exe "Start! mocha --compilers coffee:coffee-script/register %; read"<CR>
 nmap <silent> <leader>h :set hlsearch!<CR>
 
 command! Conf source ~/.vimrc
 command! Spec Start! bundle exec rspec %; read
-
-let g:CommandTMaxFiles = 100000
-let g:CommandTMaxHeight = 16
-let g:CommandTWildIgnore=&wildignore . ",**/.bundle/*,**/node_modules/*,**/bower_components/*,**/target/*"
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
