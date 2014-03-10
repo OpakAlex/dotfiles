@@ -2,7 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="hl7"
 
 source $ZSH/oh-my-zsh.sh
-stty stop undef # prevent ctrl+s freezing the terminal
+stty stop undef
 unsetopt correct
 unsetopt correct_all
 
