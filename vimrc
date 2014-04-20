@@ -6,7 +6,7 @@ set showcmd
 set number
 set incsearch
 set laststatus=2
-set splitbelow                
+set splitbelow
 set splitright
 set ignorecase
 set smartcase
@@ -19,7 +19,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" general
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
@@ -28,47 +27,51 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-vinegar'
 
-" language-specific
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'elzr/vim-json'
-
-" Bundle 'yaml.vim'
-" Bundle 'oscarh/vimerl'
-" Bundle 'elixir-lang/vim-elixir'
+Bundle 'tpope/vim-cucumber'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'oscarh/vimerl'
+Bundle 'yaml.vim'
+Bundle 'vim-emblem'
 " Bundle 'tpope/vim-haml'
-" Bundle 'tpope/vim-cucumber'
-" Bundle 'artemave/slowdown.vim'
 
 filetype plugin indent on
 syntax on
 
 colorscheme nature
 
-nmap <silent> <leader>f :CommandT<CR>
-nmap          <leader>r :CommandTFlush<CR>
-nmap          <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
-nmap          <leader>m :exe "Start! mocha --compilers coffee:coffee-script/register %; read"<CR>
-nmap          <leader>l :exe "Start! lein spec %; read"<CR>
 nmap <silent> <leader>h :set hlsearch!<CR>
-
+nmap <silent> <leader>p :set paste!<CR>
 command! Conf source ~/.vimrc
-command! Spec Start! bundle exec rspec %; read
 
-let g:CommandTMaxFiles = 100000
-let g:CommandTMaxHeight = 16
-let g:CommandTWildIgnore=&wildignore . ",**/.bundle/*,**/node_modules/*,**/bower_components/*,**/target/*"
+nmap <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
+nmap <leader>c :exe "Start! bundle exec cucumber %:" . line(".") . "; read"<CR>
+
+command! Spec Start! bundle exec rspec %; read
+command! Cuke Start! bundle exec cucumber %; read
+command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
+command! Lein Start! lien spec %; read
+command! Mix Start! mix test %; read
+
+nmap <silent> <leader>r :exe "CtrlPClearCache"<CR>
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|node_modules|bower_components|target|_build)$'}
+let g:ctrlp_show_hidden = 1
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
 	silent! %s/\s\+$//
 	call winrestview(l:winview)
 endfunction
+au BufWritePre *.{rb,coffee,js,json,yml,clj,ex,exs,emblem}  call StripTrailingWhite()
 
 function! Indent()
 	let p = getpos(".")
@@ -77,8 +80,5 @@ function! Indent()
 endfunction
 nmap <silent> <leader>i :call Indent()<CR>
 
-au BufWritePre *.{rb,coffee,js,json,clj}  call StripTrailingWhite()
-
-au FileType c,cpp setl sw=4 sts=4 noet
 au FileType javascript,json,html setl sw=4 sts=4 et
-au FileType ruby,yaml,haml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
+au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
