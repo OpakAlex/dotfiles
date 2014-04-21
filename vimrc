@@ -71,7 +71,7 @@ function! StripTrailingWhite()
 	silent! %s/\s\+$//
 	call winrestview(l:winview)
 endfunction
-au BufWritePre *.{rb,coffee,js,json,yml,clj,ex,exs,emblem}  call StripTrailingWhite()
+au BufWritePre *.{rb,coffee,js,json,yml,clj,ex,exs,haml,emblem}  call StripTrailingWhite()
 
 function! Indent()
 	let p = getpos(".")

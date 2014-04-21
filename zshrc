@@ -15,7 +15,7 @@ alias -r l='ls -lh'
 alias -r v='vim'
 alias -r g='git'
 alias -r t='tmux attach || tmux'
-alias -r pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
+alias -r pg='pg_ctl -D /usr/local/var/postgres'
 
 eval "$(rbenv init -)"
 
