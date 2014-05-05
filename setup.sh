@@ -1,7 +1,7 @@
 DIR=`pwd`
 
 # VIM
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mkdir -p ~/.vim/colors
 ln -s $DIR/vimrc ~/.vimrc
 ln -s $DIR/nature.vim ~/.vim/colors/nature.vim
