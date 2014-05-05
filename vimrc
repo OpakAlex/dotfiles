@@ -16,32 +16,32 @@ set encoding=utf8
 setglobal fileencoding=utf8
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'tsaleh/vim-supertab'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-vinegar'
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'tsaleh/vim-supertab'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-dispatch'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-vinegar'
-
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/VimClojure'
-Bundle 'elzr/vim-json'
-Bundle 'tpope/vim-cucumber'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'oscarh/vimerl'
-Bundle 'yaml.vim'
-Bundle 'vim-emblem'
-" Bundle 'tpope/vim-haml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-scripts/VimClojure'
+Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-cucumber'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'oscarh/vimerl'
+Plugin 'yaml.vim'
+Plugin 'vim-emblem'
+Plugin 'tpope/vim-haml'
+call vundle#end()
 
 filetype plugin indent on
 syntax on
