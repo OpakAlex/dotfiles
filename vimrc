@@ -80,5 +80,5 @@ function! Indent()
 endfunction
 nmap <silent> <leader>i :call Indent()<CR>
 
-au FileType javascript,json,html setl sw=4 sts=4 et
+au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
