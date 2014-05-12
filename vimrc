@@ -62,6 +62,7 @@ command! Lein Start! lien spec %; read
 command! Mix Start! mix test %; read
 
 nmap <silent> <leader>r :exe "CtrlPClearCache"<CR>
+nmap <silent> <leader>b :exe "CtrlPBuffer"<CR>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|node_modules|bower_components|target|_build|deps)$'}
 let g:ctrlp_show_hidden = 1
