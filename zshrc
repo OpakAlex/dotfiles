@@ -33,3 +33,6 @@ PERL_MB_OPT="--install_base \"/Users/romankuznietsov/perl5\"";
 export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/romankuznietsov/perl5";
 export PERL_MM_OPT;
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

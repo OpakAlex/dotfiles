@@ -67,6 +67,8 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|node_modules|bower_components|target|_build|deps)$'}
 let g:ctrlp_show_hidden = 1
 
+let g:vim_json_syntax_conceal = 0
+
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
 	silent! %s/\s\+$//
