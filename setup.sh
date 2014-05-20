@@ -5,6 +5,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mkdir -p ~/.vim/colors
 ln -s $DIR/vimrc ~/.vimrc
 ln -s $DIR/nature.vim ~/.vim/colors/nature.vim
+ln -s $DIR/custom.vim ~/.vim/colors/custom.vim
 
 # ZSH
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh

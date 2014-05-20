@@ -46,7 +46,7 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-colorscheme nature
+colorscheme custom
 
 nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <silent> <leader>p :set paste!<CR>
