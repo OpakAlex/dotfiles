@@ -33,3 +33,5 @@ hi LineNr       ctermfg=DarkGray   ctermbg=none        cterm=none
 
 hi PmenuSel 	ctermfg=White 	   ctermbg=DarkGray
 hi Pmenu 	ctermfg=Black 	   ctermbg=White
+
+hi CursorLine                      ctermbg=DarkGray    cterm=none

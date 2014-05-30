@@ -18,7 +18,8 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
+
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tsaleh/vim-supertab'
@@ -33,9 +34,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-scripts/VimClojure'
+" Plugin 'vim-scripts/VimClojure'
 Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-cucumber'
+" Plugin 'tpope/vim-cucumber'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'oscarh/vimerl'
 Plugin 'yaml.vim'
@@ -56,9 +57,9 @@ nmap <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
 nmap <leader>c :exe "Start! bundle exec cucumber %:" . line(".") . "; read"<CR>
 
 command! Spec Start! bundle exec rspec %; read
-command! Cuke Start! bundle exec cucumber %; read
+" command! Cuke Start! bundle exec cucumber %; read
 command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
-command! Lein Start! lien spec %; read
+" command! Lein Start! lien spec %; read
 command! Mix Start! mix test %; read
 
 nmap <silent> <leader>r :exe "CtrlPClearCache"<CR>
