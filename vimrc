@@ -49,18 +49,19 @@ syntax on
 
 colorscheme custom
 
+command! Conf source ~/.vimrc
 nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <silent> <leader>p :set paste!<CR>
-command! Conf source ~/.vimrc
+vnorem // y/<c-r>"<cr>
 
 nmap <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
 nmap <leader>c :exe "Start! bundle exec cucumber %:" . line(".") . "; read"<CR>
 
 command! Spec Start! bundle exec rspec %; read
-" command! Cuke Start! bundle exec cucumber %; read
 command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
-" command! Lein Start! lien spec %; read
 command! Mix Start! mix test %; read
+" command! Cuke Start! bundle exec cucumber %; read
+" command! Lein Start! lien spec %; read
 
 nmap <silent> <leader>r :exe "CtrlPClearCache"<CR>
 nmap <silent> <leader>b :exe "CtrlPBuffer"<CR>
