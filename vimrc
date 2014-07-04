@@ -54,8 +54,8 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <silent> <leader>p :set paste!<CR>
 vnorem // y/<c-r>"<cr>
 
-nmap <leader>s :exe "Start! bundle exec rspec % -l " . line(".") . "; read"<CR>
-nmap <leader>c :exe "Start! bundle exec cucumber %:" . line(".") . "; read"<CR>
+nmap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
+nmap <leader>c :exe "Start! bundle exec cucumber " . @% . ":" . line(".") . "; read"<CR>
 
 command! Spec Start! bundle exec rspec %; read
 command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
@@ -87,3 +87,4 @@ nmap <silent> <leader>i :call Indent()<CR>
 
 au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
+au FileType erlang setl ts=8 sw=4 sts=4 noet
