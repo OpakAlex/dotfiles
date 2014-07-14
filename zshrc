@@ -36,6 +36,3 @@ export PERL_MM_OPT;
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# elixir
-export PATH="/Users/romankuznietsov/code/elixir/bin:$PATH"
