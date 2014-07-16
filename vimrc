@@ -13,6 +13,7 @@ set smartcase
 set so=50
 set ruler
 set encoding=utf8
+set nofoldenable
 setglobal fileencoding=utf8
 filetype off
 
@@ -37,11 +38,11 @@ Plugin 'kchmck/vim-coffee-script'
 " Plugin 'vim-scripts/VimClojure'
 Plugin 'elzr/vim-json'
 " Plugin 'tpope/vim-cucumber'
-Plugin 'elixir-lang/vim-elixir'
+" Plugin 'elixir-lang/vim-elixir'
 Plugin 'oscarh/vimerl'
-Plugin 'yaml.vim'
-Plugin 'vim-emblem'
-Plugin 'tpope/vim-haml'
+" Plugin 'yaml.vim'
+" Plugin 'vim-emblem'
+" Plugin 'tpope/vim-haml'
 call vundle#end()
 
 filetype plugin indent on
@@ -58,8 +59,8 @@ nmap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read
 nmap <leader>c :exe "Start! bundle exec cucumber " . @% . ":" . line(".") . "; read"<CR>
 
 command! Spec Start! bundle exec rspec %; read
-command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
-command! Mix Start! mix test %; read
+" command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
+" command! Mix Start! mix test %; read
 " command! Cuke Start! bundle exec cucumber %; read
 " command! Lein Start! lien spec %; read
 
@@ -76,7 +77,7 @@ function! StripTrailingWhite()
 	silent! %s/\s\+$//
 	call winrestview(l:winview)
 endfunction
-au BufWritePre *.{rb,coffee,js,json,yml,clj,ex,exs,haml,emblem}  call StripTrailingWhite()
+au BufWritePre *.{rb,coffee,js,json,yml,clj,erl,ex,exs,haml,emblem}  call StripTrailingWhite()
 
 function! Indent()
 	let p = getpos(".")
@@ -88,3 +89,4 @@ nmap <silent> <leader>i :call Indent()<CR>
 au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
 au FileType erlang setl ts=8 sw=4 sts=4 noet
+autocmd FileType erlang set commentstring=%\ %s
