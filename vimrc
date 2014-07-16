@@ -33,16 +33,16 @@ Plugin 'tpope/vim-vinegar'
 
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
+" Plugin 'tpope/vim-haml'
+" Plugin 'tpope/vim-cucumber'
+" Plugin 'yaml.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
-" Plugin 'vim-scripts/VimClojure'
 Plugin 'elzr/vim-json'
-" Plugin 'tpope/vim-cucumber'
-" Plugin 'elixir-lang/vim-elixir'
-Plugin 'oscarh/vimerl'
-" Plugin 'yaml.vim'
 " Plugin 'vim-emblem'
-" Plugin 'tpope/vim-haml'
+Plugin 'oscarh/vimerl'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'vim-scripts/VimClojure'
 call vundle#end()
 
 filetype plugin indent on
@@ -53,7 +53,7 @@ colorscheme custom
 command! Conf source ~/.vimrc
 nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <silent> <leader>p :set paste!<CR>
-vnorem // y/<c-r>"<cr>
+vnorem <leader>g y/<C-R>"<CR>:Gg <C-R>"<CR>:set hlsearch<CR>
 
 nmap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
 nmap <leader>c :exe "Start! bundle exec cucumber " . @% . ":" . line(".") . "; read"<CR>
