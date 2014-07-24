@@ -50,13 +50,13 @@ syntax on
 
 colorscheme custom
 
-command! Conf source ~/.vimrc
-nmap <silent> <leader>h :set hlsearch!<CR>
-nmap <silent> <leader>p :set paste!<CR>
-vnorem <leader>g y/<C-R>"<CR>:Gg <C-R>"<CR>:set hlsearch<CR>
+command! Conf source $MYVIMRC
+nnoremap <silent> <leader>h :set hlsearch!<CR>
+nnoremap <silent> <leader>p :set paste!<CR>
+vnoremap <leader>g y/<C-R>"<CR>:Gg <C-R>"<CR>:set hlsearch<CR>
 
-nmap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
-nmap <leader>c :exe "Start! bundle exec cucumber " . @% . ":" . line(".") . "; read"<CR>
+nnoremap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
+" nnoremap <leader>c :exe "Start! bundle exec cucumber " . @% . ":" . line(".") . "; read"<CR>
 
 command! Spec Start! bundle exec rspec %; read
 " command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
@@ -64,8 +64,8 @@ command! Spec Start! bundle exec rspec %; read
 " command! Cuke Start! bundle exec cucumber %; read
 " command! Lein Start! lien spec %; read
 
-nmap <silent> <leader>r :exe "CtrlPClearCache"<CR>
-nmap <silent> <leader>b :exe "CtrlPBuffer"<CR>
+nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
+nnoremap <silent> <leader>b :exe "CtrlPBuffer"<CR>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|node_modules|bower_components|target|_build|deps)$'}
 let g:ctrlp_show_hidden = 1
@@ -84,9 +84,9 @@ function! Indent()
 	normal! gg=G
 	call setpos(".",p)
 endfunction
-nmap <silent> <leader>i :call Indent()<CR>
+nnoremap <silent> <leader>i :call Indent()<CR>
 
 au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
 au FileType erlang setl ts=8 sw=4 sts=4 noet
-autocmd FileType erlang set commentstring=%\ %s
+au FileType erlang setl commentstring=%\ %s
