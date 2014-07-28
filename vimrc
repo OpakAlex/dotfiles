@@ -50,24 +50,17 @@ syntax on
 
 colorscheme custom
 
-command! Conf source $MYVIMRC
+command! Vimrc source $MYVIMRC
 nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <silent> <leader>p :set paste!<CR>
 vnoremap <leader>g y/<C-R>"<CR>:Gg <C-R>"<CR>:set hlsearch<CR>
 
 nnoremap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
-" nnoremap <leader>c :exe "Start! bundle exec cucumber " . @% . ":" . line(".") . "; read"<CR>
-
 command! Spec Start! bundle exec rspec %; read
-" command! Mocha Start! mocha --compilers coffee:coffee-script/register %; read
-" command! Mix Start! mix test %; read
-" command! Cuke Start! bundle exec cucumber %; read
-" command! Lein Start! lien spec %; read
 
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
-nnoremap <silent> <leader>b :exe "CtrlPBuffer"<CR>
 let g:ctrlp_map = '<leader>f'
-let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|node_modules|bower_components|target|_build|deps)$'}
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle)$'}
 let g:ctrlp_show_hidden = 1
 
 let g:vim_json_syntax_conceal = 0
@@ -77,7 +70,6 @@ function! StripTrailingWhite()
 	silent! %s/\s\+$//
 	call winrestview(l:winview)
 endfunction
-au BufWritePre *.{rb,coffee,js,json,yml,clj,erl,ex,exs,haml,emblem}  call StripTrailingWhite()
 
 function! Indent()
 	let p = getpos(".")
@@ -86,7 +78,11 @@ function! Indent()
 endfunction
 nnoremap <silent> <leader>i :call Indent()<CR>
 
-au FileType javascript,json,html,eruby setl sw=4 sts=4 et
-au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
-au FileType erlang setl ts=8 sw=4 sts=4 noet
-au FileType erlang setl commentstring=%\ %s
+augroup custom
+	au!
+	au BufWritePre *.{rb,coffee,js,json,yml,clj,erl,ex,exs,haml,emblem}  call StripTrailingWhite()
+	au FileType javascript,json,html,eruby setl sw=4 sts=4 et
+	au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
+	au FileType erlang setl ts=8 sw=4 sts=4 noet
+	au FileType erlang setl commentstring=%\ %s
+augroup END
