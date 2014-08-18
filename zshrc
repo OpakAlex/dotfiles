@@ -15,8 +15,8 @@ alias -r l='ls -lh'
 alias -r v='vim'
 alias -r g='git'
 alias -r t='tmux attach || tmux'
-alias -r n='tmux rename-window'
 alias -r pg='pg_ctl -D /usr/local/var/postgres'
+alias -r b='bundle'
 alias -r bx='bundle exec'
 
 eval "$(rbenv init -)"

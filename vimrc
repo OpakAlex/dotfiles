@@ -30,16 +30,18 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-vinegar'
+Plugin 'scrooloose/syntastic'
 
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-" Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-haml'
+Plugin 'slim-template/vim-slim'
 " Plugin 'tpope/vim-cucumber'
-" Plugin 'yaml.vim'
+Plugin 'yaml.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
-" Plugin 'vim-emblem'
+Plugin 'vim-emblem'
 Plugin 'oscarh/vimerl'
 " Plugin 'elixir-lang/vim-elixir'
 " Plugin 'vim-scripts/VimClojure'
@@ -71,6 +73,15 @@ function! StripTrailingWhite()
 	call winrestview(l:winview)
 endfunction
 
+function! g:ToggleColorColumn()
+  if &colorcolumn != ''
+    setlocal colorcolumn&
+  else
+    setlocal colorcolumn=81
+  endif
+endfunction
+nnoremap <silent> <leader>c :call g:ToggleColorColumn()<CR>
+
 function! Indent()
 	let p = getpos(".")
 	normal! gg=G
@@ -85,4 +96,6 @@ augroup custom
 	au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
 	au FileType erlang setl ts=8 sw=4 sts=4 noet
 	au FileType erlang setl commentstring=%\ %s
+	au BufNewFile,BufRead *.lit setl ft=lit
+	au FileType lit setl sw=4 sts=4 et
 augroup END
