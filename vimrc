@@ -56,11 +56,13 @@ command! Vimrc source $MYVIMRC
 nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <silent> <leader>p :set paste!<CR>
 vnoremap <leader>g y/<C-R>"<CR>:Gg <C-R>"<CR>:set hlsearch<CR>
+nnoremap <silent> <leader>j :set cursorline cursorcolumn<CR>:sleep 100 m<CR>:set nocursorline nocursorcolumn<CR>
 
 nnoremap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
 command! Spec Start! bundle exec rspec %; read
 
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
+nnoremap <silent> <leader>b :exe "CtrlPBuffer"<CR>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle)$'}
 let g:ctrlp_show_hidden = 1
@@ -89,11 +91,28 @@ function! Indent()
 endfunction
 nnoremap <silent> <leader>i :call Indent()<CR>
 
+function! DeleteInactiveBufs()
+    let tablist = []
+    for i in range(tabpagenr('$'))
+        call extend(tablist, tabpagebuflist(i + 1))
+    endfor
+
+    let nWipeouts = 0
+    for i in range(1, bufnr('$'))
+        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
+            silent exec 'bwipeout' i
+            let nWipeouts = nWipeouts + 1
+        endif
+    endfor
+    echomsg nWipeouts . ' buffer(s) wiped out'
+endfunction
+nnoremap <leader>w :call DeleteInactiveBufs()<CR>
+
 augroup custom
 	au!
 	au BufWritePre *.{rb,coffee,js,json,yml,clj,erl,ex,exs,haml,emblem}  call StripTrailingWhite()
 	au FileType javascript,json,html,eruby setl sw=4 sts=4 et
-	au FileType ruby,haml,yaml,coffee,scss,sass,cucumber setl sw=2 sts=2 et
+	au FileType ruby,haml,yaml,coffee,scss,sass,cucumber,slim setl sw=2 sts=2 et
 	au FileType erlang setl ts=8 sw=4 sts=4 noet
 	au FileType erlang setl commentstring=%\ %s
 	au BufNewFile,BufRead *.lit setl ft=lit
