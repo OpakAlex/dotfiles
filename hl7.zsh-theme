@@ -1,7 +1,11 @@
-BG_JOBS="%(1j. %{$fg[red]%}%j %{$fg[cyan]%}|%{$reset_color%}.)"
-PROMPT='%{$fg[cyan]%}| %{$reset_color%}%c %{$fg[cyan]%}|$(git_prompt_info)%{$reset_color%}$BG_JOBS '
+SEP="%{$fg[cyan]%}|%{$reset_color%}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX=" %{$fg[cyan]%}|"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[cyan]%}| %{$fg[green]%}+%{$fg[red]%}-"
+BG_JOBS="%(1j.%{$fg[red]%}%j $SEP.)"
+
+PROMPT='$SEP %D{%Y-%m-%d %I:%M:%S} $SEP %d $SEP $(git_prompt_info) $BG_JOBS
+$ '
+
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX=" $SEP"
+ZSH_THEME_GIT_PROMPT_DIRTY=" $SEP %{$fg[green]%}+%{$fg[red]%}-"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
