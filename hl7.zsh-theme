@@ -2,7 +2,7 @@ SEP="%{$fg[cyan]%}|%{$reset_color%}"
 
 BG_JOBS="%(1j.%{$fg[red]%}%j $SEP.)"
 
-PROMPT='$SEP %D{%Y-%m-%d %I:%M:%S} $SEP %d $SEP $(git_prompt_info) $BG_JOBS
+PROMPT='$SEP %c $SEP $(git_prompt_info) $BG_JOBS
 $ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
