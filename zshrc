@@ -10,18 +10,21 @@ export EDITOR=vim
 export BROWSER=google-chrome
 export PAGER='less -S'
 export TERM=xterm-256color
+export PGDATA=/usr/local/var/postgres
+export PATH="$HOME/bin:/usr/local/heroku/bin:$PATH"
 
-alias -r l='ls -lh'
-alias -r v='vim'
-alias -r g='git'
-alias -r t='tmux attach || tmux'
-alias -r pg='pg_ctl -D /usr/local/var/postgres'
-alias -r b='bundle'
-alias -r bx='bundle exec'
+alias -r rake='bundle exec rake'
+alias -r rspec='bundle exec rspec'
+alias -r rails='bundle exec rails'
+alias -r cap='bundle exec cap'
+alias -r rackup='bundle exec rackup'
 
 eval "$(rbenv init -)"
 
-PATH=./bin:~/bin:$PATH
+export PATH="/Users/romankuznietsov/perl5/bin${PATH+:}$PATH";
+export PERL5LIB="/Users/romankuznietsov/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB";
+export PERL_LOCAL_LIB_ROOT="/Users/romankuznietsov/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT";
+export PERL_MB_OPT="--install_base \"/Users/romankuznietsov/perl5\"";
+export PERL_MM_OPT="INSTALL_BASE=/Users/romankuznietsov/perl5";
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+if [ -z $TMUX ]; then tmux attach || tmux; fi
