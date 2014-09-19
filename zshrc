@@ -13,11 +13,9 @@ export TERM=xterm-256color
 export PGDATA=/usr/local/var/postgres
 export PATH="$HOME/bin:/usr/local/heroku/bin:$PATH"
 
-alias -r rake='bundle exec rake'
-alias -r rspec='bundle exec rspec'
-alias -r rails='bundle exec rails'
-alias -r cap='bundle exec cap'
-alias -r rackup='bundle exec rackup'
+alias -r g='git'
+alias -r v='vim'
+alias -r bx='bundle exec'
 
 eval "$(rbenv init -)"
 
