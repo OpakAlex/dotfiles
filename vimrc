@@ -52,8 +52,8 @@ colorscheme custom
 
 nnoremap <silent> <leader>h :set hlsearch!<CR>
 
-nnoremap <leader>s :exe "Start! bundle exec rspec " . @% . ":" . line(".") . "; read"<CR>
-nnoremap <leader>as :exe "Start! bundle exec rspec " . @% . "; read"<CR>
+nnoremap <leader>s :exe "Start! bundle exec rspec ".@%.":".line(".").";read"<CR>
+nnoremap <leader>as :exe "Start! bundle exec rspec ".@%.";read"<CR>
 
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
 let g:ctrlp_map = '<leader>f'
@@ -68,6 +68,15 @@ function! StripTrailingWhite()
 	call winrestview(l:winview)
 endfunction
 
+function! g:ToggleColorColumn()
+  if &colorcolumn != ''
+    setlocal colorcolumn&
+  else
+    setlocal colorcolumn=81
+  endif
+endfunction
+nnoremap <silent> <leader>c :call g:ToggleColorColumn()<CR>
+
 function! Indent()
 	let p = getpos(".")
 	normal! gg=G
@@ -79,6 +88,6 @@ augroup custom
 	au!
 	au BufWritePre * call StripTrailingWhite()
 	au FileType javascript,json,html,eruby setl sw=4 sts=4 et
-	au FileType ruby,haml,yaml,coffee,scss,sass,cucumber,slim setl sw=2 sts=2 et
+	au FileType ruby,haml,yaml,coffee,scss,sass,slim setl sw=2 sts=2 et
 	au FileType erlang setl ts=8 sw=4 sts=4 noet commentstring=%\ %s
 augroup END
