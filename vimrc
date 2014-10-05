@@ -11,7 +11,6 @@ set splitright
 set ignorecase
 set smartcase
 set scrolloff=10
-set ruler
 set nofoldenable
 filetype off
 
@@ -43,6 +42,7 @@ Plugin 'vim-emblem'
 Plugin 'oscarh/vimerl'
 " Plugin 'elixir-lang/vim-elixir'
 " Plugin 'vim-scripts/VimClojure'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
 filetype plugin indent on
@@ -51,15 +51,13 @@ syntax on
 colorscheme custom
 
 nnoremap <silent> <leader>h :set hlsearch!<CR>
-
 nnoremap <leader>s :exe "Start! bundle exec rspec ".@%.":".line(".").";read"<CR>
 nnoremap <leader>as :exe "Start! bundle exec rspec ".@%.";read"<CR>
-
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
+
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-
 let g:vim_json_syntax_conceal = 0
 
 function! StripTrailingWhite()

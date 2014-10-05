@@ -15,8 +15,8 @@ export PATH="$HOME/bin:/usr/local/heroku/bin:$PATH"
 
 alias -r g='git'
 alias -r v='vim'
-alias -r bx='bundle exec'
 
+alias -r bx='bundle exec'
 alias -r rails='bx rails'
 alias -r rake='bx rake'
 alias -r rackup='bx rackup'
