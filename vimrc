@@ -55,10 +55,24 @@ nnoremap <leader>s :exe "Start! bundle exec rspec ".@%.":".line(".").";read"<CR>
 nnoremap <leader>as :exe "Start! bundle exec rspec ".@%.";read"<CR>
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
 
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gd :Gdiff HEAD<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
+nnoremap <silent> <leader>ga :Git add %<CR><CR>:echo 'git add'<CR>
+
+nnoremap <leader>gg yiwmG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
+vnoremap <leader>gg ymG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
+
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:vim_json_syntax_conceal = 0
+let g:syntastic_mode_map={ 'mode': 'active',
+                     \ 'active_filetypes': [],
+                     \ 'passive_filetypes': ['html'] }
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
