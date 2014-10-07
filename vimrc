@@ -51,9 +51,11 @@ syntax on
 colorscheme custom
 
 nnoremap <silent> <leader>h :set hlsearch!<CR>
-nnoremap <leader>s :exe "Start! bundle exec rspec ".@%.":".line(".").";read"<CR>
-nnoremap <leader>as :exe "Start! bundle exec rspec ".@%.";read"<CR>
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
+
+nnoremap <leader>s :exe "Start bundle exec rspec ".@%.":".line(".")."\| less -R"<CR>
+nnoremap <leader>as :exe "Start bundle exec rspec ".@%."\| less -R"<CR>
+nnoremap <leader>e :exe "Start rebar eunit \| less -R"<CR>
 
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -61,7 +63,9 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gd :Gdiff HEAD<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
-nnoremap <silent> <leader>ga :Git add %<CR><CR>:echo 'git add'<CR>
+nnoremap <silent> <leader>gad :Git add %<CR><CR>:echo 'git add' @%<CR>
+nnoremap <silent> <leader>gaa :Git add -A<CR><CR>:echo 'git add -A'<CR>
+nnoremap <silent> <leader>gds :exe "Start git diff --staged"<CR>
 
 nnoremap <leader>gg yiwmG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
 vnoremap <leader>gg ymG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>

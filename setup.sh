@@ -16,3 +16,4 @@ ln -s $DIR/hl7.zsh-theme ~/.oh-my-zsh/themes/hl7.zsh-theme
 ln -s $DIR/gemrc ~/.gemrc
 ln -s $DIR/gitconfig ~/.gitconfig
 ln -s $DIR/tmux.conf ~/.tmux.conf
+ln -s $DIR/rspec ~/.rspec
