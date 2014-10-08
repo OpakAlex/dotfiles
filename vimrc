@@ -40,7 +40,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
 Plugin 'vim-emblem'
 Plugin 'oscarh/vimerl'
-" Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-lang/vim-elixir'
 " Plugin 'vim-scripts/VimClojure'
 Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
@@ -52,20 +52,6 @@ colorscheme custom
 
 nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
-
-nnoremap <leader>s :exe "Start bundle exec rspec ".@%.":".line(".")."\| less -R"<CR>
-nnoremap <leader>as :exe "Start bundle exec rspec ".@%."\| less -R"<CR>
-nnoremap <leader>e :exe "Start rebar eunit \| less -R"<CR>
-
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gd :Gdiff HEAD<CR>
-nnoremap <silent> <leader>ge :Gedit<CR>
-nnoremap <silent> <leader>gad :Git add %<CR><CR>:echo 'git add' @%<CR>
-nnoremap <silent> <leader>gaa :Git add -A<CR><CR>:echo 'git add -A'<CR>
-nnoremap <silent> <leader>gds :exe "Start git diff --staged"<CR>
 
 nnoremap <leader>gg yiwmG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
 vnoremap <leader>gg ymG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
@@ -106,4 +92,7 @@ augroup custom
 	au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 	au FileType ruby,haml,yaml,coffee,scss,sass,slim setl sw=2 sts=2 et
 	au FileType erlang setl ts=8 sw=4 sts=4 noet commentstring=%\ %s
+	au Filetype elixir nnoremap <leader>s :exe "Start mix test --color ".@%."\| less -R"<CR>
+	au Filetype ruby nnoremap <leader>s :exe "Start bundle exec rspec ".@%.":".line(".")."\| less -R"<CR>
+	au Filetype ruby nnoremap <leader>as :exe "Start bundle exec rspec ".@%."\| less -R"<CR>
 augroup END
