@@ -13,6 +13,7 @@ set smartcase
 set scrolloff=10
 set nofoldenable
 set clipboard=unnamed
+set ruler
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
