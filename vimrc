@@ -42,7 +42,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
 Plugin 'vim-emblem'
 Plugin 'oscarh/vimerl'
-Plugin 'elixir-lang/vim-elixir'
+" Plugin 'elixir-lang/vim-elixir'
 " Plugin 'vim-scripts/VimClojure'
 Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
@@ -61,7 +61,7 @@ vnoremap <leader>gg ymG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
 
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle|_build)$'}
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:vim_json_syntax_conceal = 0
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
@@ -112,7 +112,6 @@ augroup custom
 	au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 	au FileType ruby,haml,yaml,coffee,scss,sass,slim setl sw=2 sts=2 et
 	au FileType erlang setl ts=8 sw=4 sts=4 noet commentstring=%\ %s
-	au Filetype elixir nnoremap <leader>s :exe "Start mix test ".@%."; read"<CR>
 	au Filetype ruby nnoremap <leader>s :exe "Start bundle exec rspec ".@%.":".line(".")."; read"<CR>
 	au Filetype ruby nnoremap <leader>as :exe "Start bundle exec rspec ".@%."; read"<CR>
 augroup END

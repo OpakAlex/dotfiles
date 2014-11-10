@@ -11,7 +11,6 @@ export BROWSER=google-chrome
 export PAGER='less -S'
 export TERM=xterm-256color
 export PGDATA=/usr/local/var/postgres
-export PATH="$HOME/bin:/usr/local/heroku/bin:$PATH"
 
 alias -r g='git'
 alias -r v='vim'
