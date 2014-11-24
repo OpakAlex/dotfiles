@@ -53,7 +53,6 @@ syntax on
 colorscheme custom
 
 nnoremap <silent> <leader>h :set hlsearch!<CR>
-nnoremap <silent> <leader>r :exe "CtrlPClearCache"<CR>
 nnoremap <silent> <leader>b :exe "CtrlPBuffer"<CR>
 
 nnoremap <leader>gg yiwmG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
@@ -61,11 +60,21 @@ vnoremap <leader>gg ymG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
 
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_use_caching = 0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle)$'}
 let g:vim_json_syntax_conceal = 0
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
+
+function! CtrlPAllFiles()
+	let l:old_cmd = g:ctrlp_user_command
+	let g:ctrlp_user_command = []
+	CtrlP()
+	let g:ctrlp_user_command = l:old_cmd
+endfunction
+nnoremap <silent> <leader>af :call CtrlPAllFiles()<CR>
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
@@ -106,6 +115,11 @@ function! DeleteInactiveBufs()
 endfunction
 nnoremap <leader>w :call DeleteInactiveBufs()<CR>
 
+function! EunitCurrent()
+	let l:modname = matchlist(@%, '\([^/]\+\)\.erl')[1]
+	exe "Start rebar eunit suite=" . l:modname . "; read"
+endfunction
+
 augroup custom
 	au!
 	au BufWritePre * call StripTrailingWhite()
@@ -114,4 +128,5 @@ augroup custom
 	au FileType erlang setl ts=8 sw=4 sts=4 noet commentstring=%\ %s
 	au Filetype ruby nnoremap <leader>s :exe "Start bundle exec rspec ".@%.":".line(".")."; read"<CR>
 	au Filetype ruby nnoremap <leader>as :exe "Start bundle exec rspec ".@%."; read"<CR>
+	au Filetype erlang nnoremap <leader>s :call EunitCurrent()<CR>
 augroup END

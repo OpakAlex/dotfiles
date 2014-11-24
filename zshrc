@@ -1,6 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="hl7"
 
+PATH=~/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
 stty stop undef
 unsetopt correct
