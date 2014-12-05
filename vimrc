@@ -52,12 +52,6 @@ syntax on
 
 colorscheme custom
 
-nnoremap <silent> <leader>h :set hlsearch!<CR>
-nnoremap <silent> <leader>b :exe "CtrlPBuffer"<CR>
-
-nnoremap <leader>gg yiwmG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
-vnoremap <leader>gg ymG/<C-R>"<CR>:Ggrep <C-R>"<CR>:set hlsearch<CR>
-
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
@@ -65,8 +59,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
 let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle)$'}
 let g:vim_json_syntax_conceal = 0
 let g:syntastic_mode_map={ 'mode': 'active',
-                     \ 'active_filetypes': [],
-                     \ 'passive_filetypes': ['html'] }
+			\ 'active_filetypes': [],
+			\ 'passive_filetypes': ['html', 'eruby'] }
 
 function! CtrlPAllFiles()
 	let l:old_cmd = g:ctrlp_user_command
@@ -74,7 +68,6 @@ function! CtrlPAllFiles()
 	CtrlP()
 	let g:ctrlp_user_command = l:old_cmd
 endfunction
-nnoremap <silent> <leader>af :call CtrlPAllFiles()<CR>
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
@@ -82,51 +75,41 @@ function! StripTrailingWhite()
 	call winrestview(l:winview)
 endfunction
 
-function! g:ToggleColorColumn()
+function! ToggleColorColumn()
 	if &colorcolumn != ''
 		setlocal colorcolumn&
 	else
 		setlocal colorcolumn=81
 	endif
 endfunction
-nnoremap <silent> <leader>c :call g:ToggleColorColumn()<CR>
 
 function! Indent()
-	let p = getpos(".")
+	let l:winview = winsaveview()
 	normal! gg=G
-	call setpos(".",p)
+	call winrestview(l:winview)
 endfunction
-nnoremap <silent> <leader>i :call Indent()<CR>
-
-function! DeleteInactiveBufs()
-    let tablist = []
-    for i in range(tabpagenr('$'))
-        call extend(tablist, tabpagebuflist(i + 1))
-    endfor
-
-    let nWipeouts = 0
-    for i in range(1, bufnr('$'))
-        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
-            silent exec 'bwipeout' i
-            let nWipeouts = nWipeouts + 1
-        endif
-    endfor
-    echomsg nWipeouts . ' buffer(s) wiped out'
-endfunction
-nnoremap <leader>w :call DeleteInactiveBufs()<CR>
 
 function! EunitCurrent()
 	let l:modname = matchlist(@%, '\([^/]\+\)\.erl')[1]
 	exe "Start rebar eunit suite=" . l:modname . "; read"
 endfunction
 
+nnoremap <silent> <leader>af :call CtrlPAllFiles()<CR>
+nnoremap <silent> <leader>c :call ToggleColorColumn()<CR>
+nnoremap <silent> <leader>i :call Indent()<CR>
+nnoremap <silent> <leader>h :set hlsearch!<CR>
+nnoremap <leader>g :Ggrep<space>
+vnoremap <leader>g y:Ggrep<space><C-R>"
+
 augroup custom
 	au!
 	au BufWritePre * call StripTrailingWhite()
+
 	au FileType javascript,json,html,eruby setl sw=4 sts=4 et
 	au FileType ruby,haml,yaml,coffee,scss,sass,slim setl sw=2 sts=2 et
-	au FileType erlang setl ts=8 sw=4 sts=4 noet commentstring=%\ %s
-	au Filetype ruby nnoremap <leader>s :exe "Start bundle exec rspec ".@%.":".line(".")."; read"<CR>
-	au Filetype ruby nnoremap <leader>as :exe "Start bundle exec rspec ".@%."; read"<CR>
-	au Filetype erlang nnoremap <leader>s :call EunitCurrent()<CR>
+	au FileType erlang setl ts=4 sw=4 sts=4 et commentstring=%\ %s
+
+	au Filetype ruby nnoremap <leader>t :exe "Start bundle exec rspec ".@%.":".line(".")."; read"<CR>
+	au Filetype ruby nnoremap <leader>at :exe "Start bundle exec rspec ".@%."; read"<CR>
+	au Filetype erlang nnoremap <leader>t :call EunitCurrent()<CR>
 augroup END
