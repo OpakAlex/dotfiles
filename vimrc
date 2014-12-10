@@ -22,29 +22,20 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
-Plugin 'tsaleh/vim-supertab'
+" Plugin 'tsaleh/vim-supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-vinegar'
-Plugin 'scrooloose/syntastic'
 
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-" Plugin 'tpope/vim-haml'
-Plugin 'slim-template/vim-slim'
-" Plugin 'tpope/vim-cucumber'
-Plugin 'yaml.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
-Plugin 'vim-emblem'
 Plugin 'oscarh/vimerl'
-" Plugin 'elixir-lang/vim-elixir'
-" Plugin 'vim-scripts/VimClojure'
-Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
 filetype plugin indent on
@@ -58,9 +49,6 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
 let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|\.bundle)$'}
 let g:vim_json_syntax_conceal = 0
-let g:syntastic_mode_map={ 'mode': 'active',
-			\ 'active_filetypes': [],
-			\ 'passive_filetypes': ['html', 'eruby'] }
 
 function! CtrlPAllFiles()
 	let l:old_cmd = g:ctrlp_user_command
