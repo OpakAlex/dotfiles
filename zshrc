@@ -24,4 +24,4 @@ alias -r rackup='bx rackup'
 alias -r cap='bx cap'
 alias -r rspec='bx rspec'
 
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
