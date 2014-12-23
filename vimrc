@@ -51,7 +51,9 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
 let g:vim_json_syntax_conceal = 0
 
-let g:syntastic_mode_map = { "mode": "passive" }
+let g:syntastic_mode_map = { "mode": "passive",
+			\ "active_filetypes": ["erlang"],
+			\ "passive_filetypes": [] }
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
@@ -75,15 +77,15 @@ endfunction
 
 function! EunitFile()
 	let l:modname = matchlist(@%, '\([^/]\+\)\.erl')[1]
-	exe "Start rebar eunit suite=" . l:modname . "; read"
+	exe "Start rebar eunit suite=" . l:modname
 endfunction
 
 function! RspecFile()
-	exe "Start bundle exec rspec ".@%."; read"
+	exe "Start bundle exec rspec ".@%
 endfunction
 
 function! RspecLine()
-	exe "Start bundle exec rspec ".@%.":".line(".")."; read"
+	exe "Start bundle exec rspec ".@%.":".line(".")
 endfunction
 
 nnoremap <silent> <leader>c :call ToggleColorColumn()<CR>
@@ -91,7 +93,7 @@ nnoremap <silent> <leader>i :call Indent()<CR>
 nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
-nnoremap <leader>s :SyntasticCheck<CR>
+nnoremap <leader>s :SyntasticReset<CR>
 
 augroup custom
 	au!
