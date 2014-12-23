@@ -51,9 +51,7 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
 let g:vim_json_syntax_conceal = 0
 
-let g:syntastic_mode_map = { "mode": "passive",
-			\ "active_filetypes": ["erlang"],
-			\ "passive_filetypes": [] }
+let g:syntastic_mode_map = { "mode": "passive" }
 
 function! StripTrailingWhite()
 	let l:winview = winsaveview()
@@ -93,6 +91,7 @@ nnoremap <silent> <leader>i :call Indent()<CR>
 nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
+nnoremap <leader>s :SyntasticCheck<CR>
 
 augroup custom
 	au!
