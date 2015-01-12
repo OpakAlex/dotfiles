@@ -38,6 +38,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
 Plugin 'oscarh/vimerl'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
 filetype plugin indent on

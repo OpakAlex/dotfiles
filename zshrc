@@ -25,3 +25,5 @@ alias -r cap='bx cap'
 alias -r rspec='bx rspec'
 
 eval "$(rbenv init - zsh)"
+
+[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
