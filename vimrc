@@ -95,6 +95,7 @@ nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
+command Gadd Git add %
 
 augroup custom
 	au!
