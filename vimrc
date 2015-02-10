@@ -8,8 +8,8 @@ set incsearch
 set laststatus=2
 set splitbelow
 set splitright
-" set ignorecase
-" set smartcase
+set ignorecase
+set smartcase
 set scrolloff=10
 set nofoldenable
 set clipboard=unnamed
@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
-Plugin 'tsaleh/vim-supertab'
+Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
@@ -51,6 +51,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
 let g:vim_json_syntax_conceal = 0
+let g:SuperTabCompleteCase = 'match'
 
 let g:syntastic_mode_map = { "mode": "passive",
 			\ "active_filetypes": ["erlang"],
