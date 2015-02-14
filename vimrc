@@ -96,6 +96,7 @@ nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
 command Gadd Git add %
+nnoremap Â :Git add %<CR>
 
 augroup custom
 	au!
