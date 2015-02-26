@@ -109,7 +109,7 @@ augroup custom
 	au FileType ruby,haml,yaml,coffee setl ts=2 sw=2 sts=2 et
 	au FileType erlang setl ts=4 sw=4 sts=4 et commentstring=%\ %s
 
-	au Filetype ruby nnoremap <leader>t :call RspecLine()<CR>
-	au Filetype ruby nnoremap <leader>at :call RspecFile()<CR>
+	au Filetype ruby nnoremap <leader>l :call RspecLine()<CR>
+	au Filetype ruby nnoremap <leader>t :call RspecFile()<CR>
 	au Filetype erlang nnoremap <leader>t :call EunitFile()<CR>
 augroup END
