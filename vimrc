@@ -52,6 +52,7 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
 let g:vim_json_syntax_conceal = 0
 let g:SuperTabCompleteCase = 'match'
+let g:commentary_map_backslash = 0
 
 let g:syntastic_mode_map = { "mode": "passive",
 			\ "active_filetypes": ["erlang"],
@@ -96,8 +97,9 @@ nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
-command Gadd Git add %
+command! Gadd Git add %
 nnoremap Â :Git add %<CR>
+nnoremap \\ :CtrlPLine %<CR>
 
 augroup custom
 	au!
