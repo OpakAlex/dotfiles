@@ -13,7 +13,7 @@ set smartcase
 set scrolloff=10
 set nofoldenable
 set clipboard=unnamed
-set statusline=%f\ %y
+set statusline=%f\ %y\ %m\ %=[%l,\ %c]
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
