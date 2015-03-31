@@ -39,6 +39,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
 Plugin 'oscarh/vimerl'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'OrangeT/vim-csharp'
 call vundle#end()
 
 filetype plugin indent on
@@ -107,6 +108,7 @@ augroup custom
 	au FileType javascript,json,html,eruby setl ts=4 sw=4 sts=4 et
 	au FileType ruby,haml,yaml,coffee setl ts=2 sw=2 sts=2 et
 	au FileType erlang setl ts=4 sw=4 sts=4 et commentstring=%\ %s
+	au FileType cs setl ts=4 sw=4 sts=4 et commentstring=//\ %s
 
 	au Filetype ruby nnoremap <leader>l :call RspecLine()<CR>
 	au Filetype ruby nnoremap <leader>t :call RspecFile()<CR>
