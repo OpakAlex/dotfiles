@@ -23,7 +23,7 @@ hi Error        ctermfg=Red        ctermbg=none         cterm=underline
 hi Visual       ctermfg=White      ctermbg=DarkGray
 hi ErrorMsg     ctermfg=Red        ctermbg=none
 hi WarningMsg   ctermfg=Yellow     ctermbg=none
-hi Title        ctermfg=White      ctermbg=DarkCyan
+hi Title        ctermfg=DarkCyan   ctermbg=none
 hi VertSplit    ctermfg=DarkGray   ctermbg=none
 hi Directory    ctermfg=Cyan       ctermbg=DarkBlue
 hi Cursor       ctermfg=White      ctermbg=White
