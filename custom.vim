@@ -24,7 +24,7 @@ hi Visual       ctermfg=White      ctermbg=DarkGray
 hi ErrorMsg     ctermfg=Red        ctermbg=none
 hi WarningMsg   ctermfg=Yellow     ctermbg=none
 hi Title        ctermfg=DarkCyan   ctermbg=none
-hi VertSplit    ctermfg=DarkGray   ctermbg=none
+hi VertSplit    ctermfg=DarkGray   ctermbg=DarkGray
 hi Directory    ctermfg=Cyan       ctermbg=DarkBlue
 hi Cursor       ctermfg=White      ctermbg=White
 hi StatusLine   ctermfg=White      ctermbg=none        cterm=underline
@@ -36,6 +36,6 @@ hi Pmenu 	ctermfg=Black 	   ctermbg=White
 
 hi CursorLine                      ctermbg=DarkGray    cterm=none
 
-hi TabLine     ctermfg=White    ctermbg=none           cterm=underline
+hi TabLine     ctermfg=DarkGray    ctermbg=none        cterm=underline
 hi TabLineSel  ctermfg=DarkCyan                        cterm=underline
-hi TabLineFill ctermfg=White                           cterm=underline
+hi TabLineFill ctermfg=DarkGray                        cterm=underline
