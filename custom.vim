@@ -37,5 +37,5 @@ hi Pmenu 	ctermfg=Black 	   ctermbg=White
 hi CursorLine                      ctermbg=DarkGray    cterm=none
 
 hi TabLine     ctermfg=White    ctermbg=none           cterm=underline
-hi TabLineSel  ctermfg=Cyan                            cterm=underline
+hi TabLineSel  ctermfg=DarkCyan                        cterm=underline
 hi TabLineFill ctermfg=White                           cterm=underline

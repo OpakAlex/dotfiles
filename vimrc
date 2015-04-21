@@ -35,7 +35,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
 Plugin 'oscarh/vimerl'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -50,7 +49,7 @@ colorscheme custom
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files | uniq']
+let g:ctrlp_user_command = ['.git', 'cd %s && { git ls-files && git ls-files -o --exclude-standard } | uniq']
 let g:vim_json_syntax_conceal = 0
 let g:SuperTabCompleteCase = 'match'
 let g:commentary_map_backslash = 0
@@ -98,7 +97,6 @@ nnoremap <silent> <leader>h :set hlsearch!<CR>
 nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
-command! Gadd Git add %
 nnoremap \\ :CtrlPLine %<CR>
 
 augroup custom
