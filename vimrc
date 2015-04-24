@@ -14,6 +14,7 @@ set scrolloff=10
 set nofoldenable
 set clipboard=unnamed
 set statusline=%f\ %y\ %m\ %=[%l,\ %c]
+set showtabline=2
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
