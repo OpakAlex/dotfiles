@@ -25,7 +25,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
+Plugin 'romankuznietsov/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
@@ -99,11 +99,6 @@ nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
 nnoremap \\ :CtrlPLine %<CR>
-
-nnoremap [t gT
-nnoremap ]t gt
-nnoremap [T :tabfirst<CR>
-nnoremap ]T :tablast<CR>
 
 augroup custom
 	au!
