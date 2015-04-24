@@ -99,8 +99,10 @@ vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
 nnoremap \\ :CtrlPLine %<CR>
 
-nnoremap ]t gt
 nnoremap [t gT
+nnoremap ]t gt
+nnoremap [T :tabfirst<CR>
+nnoremap ]T :tablast<CR>
 
 augroup custom
 	au!
