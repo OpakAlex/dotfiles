@@ -99,6 +99,9 @@ vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
 nnoremap \\ :CtrlPLine %<CR>
 
+nnoremap ]t gt
+nnoremap [t gT
+
 augroup custom
 	au!
 	au BufWritePre * call StripTrailingWhite()
