@@ -38,6 +38,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'oscarh/vimerl'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'OrangeT/vim-csharp'
 call vundle#end()
