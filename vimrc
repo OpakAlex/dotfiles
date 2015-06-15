@@ -105,7 +105,7 @@ augroup custom
 	au!
 	au BufWritePre * call StripTrailingWhite()
 
-	au FileType json,html,eruby setl ts=4 sw=4 sts=4 et
+	au FileType json,html,eruby,html.handlebars setl ts=4 sw=4 sts=4 et
 	au FileType ruby,haml,yaml,javascript setl ts=2 sw=2 sts=2 et
 	au FileType erlang setl ts=4 sw=4 sts=4 et commentstring=%\ %s
 	au FileType cs setl ts=4 sw=4 sts=4 et commentstring=//\ %s
