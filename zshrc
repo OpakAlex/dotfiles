@@ -16,7 +16,7 @@ export PGDATA=/usr/local/var/postgres
 
 alias -r g='git'
 alias -r v='vim'
-alias -r bx='bundle exec'
+alias -r b='bundle exec'
 
 eval "$(rbenv init - zsh)"
 
