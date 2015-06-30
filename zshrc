@@ -8,6 +8,9 @@ stty stop undef
 unsetopt correct
 unsetopt correct_all
 
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 export EDITOR=vim
 export BROWSER=google-chrome
 export PAGER='less -S'
