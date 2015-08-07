@@ -85,6 +85,10 @@ function! EunitFile()
 	exe "Start rebar eunit suite=" . l:modname . "; read"
 endfunction
 
+function! ExunitFile()
+	exe "Start mix test " . @% . "; read"
+endfunction
+
 function! RspecFile()
 	exe "Start bundle exec rspec " . @% . "; read"
 endfunction
@@ -113,4 +117,5 @@ augroup custom
 	au Filetype ruby nnoremap <leader>l :call RspecLine()<CR>
 	au Filetype ruby nnoremap <leader>t :call RspecFile()<CR>
 	au Filetype erlang nnoremap <leader>t :call EunitFile()<CR>
+	au Filetype elixir nnoremap <leader>t :call ExunitFile()<CR>
 augroup END
