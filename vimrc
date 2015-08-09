@@ -41,6 +41,7 @@ Plugin 'oscarh/vimerl'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'OrangeT/vim-csharp'
+Plugin 'mxw/vim-jsx'
 call vundle#end()
 
 filetype plugin indent on
