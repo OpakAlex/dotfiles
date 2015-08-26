@@ -40,8 +40,7 @@ Plugin 'elzr/vim-json'
 Plugin 'oscarh/vimerl'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'OrangeT/vim-csharp'
-Plugin 'mxw/vim-jsx'
+Plugin 'toyamarinyon/vim-swift'
 call vundle#end()
 
 filetype plugin indent on
@@ -105,6 +104,8 @@ nnoremap <leader>g :Ggrep<space>
 vnoremap <leader>g y:Ggrep<space><C-R>"
 nnoremap <leader>s :SyntasticReset<CR>
 nnoremap \\ :CtrlPLine %<CR>
+
+command! Json :%!python -m json.tool
 
 augroup custom
 	au!
