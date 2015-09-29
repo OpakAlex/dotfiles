@@ -11,7 +11,8 @@ set splitright
 set ignorecase
 set smartcase
 set scrolloff=10
-set nofoldenable
+set foldmethod=indent
+set foldlevelstart=99
 set clipboard=unnamed
 set statusline=%f\ %y\ %m\ %=[%l,\ %c]
 set showtabline=2
@@ -32,15 +33,14 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/syntastic'
 
+Plugin 'oscarh/vimerl'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
-Plugin 'oscarh/vimerl'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'keith/swift.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -114,7 +114,6 @@ augroup custom
 	au FileType json,html,eruby,html.handlebars setl ts=4 sw=4 sts=4 et
 	au FileType ruby,haml,yaml,javascript setl ts=2 sw=2 sts=2 et
 	au FileType erlang setl ts=4 sw=4 sts=4 et commentstring=%\ %s
-	au FileType swift setl ts=4 sw=4 sts=4 et
 
 	au Filetype ruby nnoremap <leader>l :call RspecLine()<CR>
 	au Filetype ruby nnoremap <leader>t :call RspecFile()<CR>
