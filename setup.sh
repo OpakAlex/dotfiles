@@ -15,5 +15,4 @@ ln -fs $DIR/hl7.zsh-theme ~/.oh-my-zsh/themes/hl7.zsh-theme
 # OTHER
 ln -fs $DIR/gemrc ~/.gemrc
 ln -fs $DIR/gitconfig ~/.gitconfig
-ln -fs $DIR/tmux.conf ~/.tmux.conf
 ln -fs $DIR/rspec ~/.rspec

@@ -82,19 +82,19 @@ endfunction
 
 function! EunitFile()
 	let l:modname = matchlist(@%, '\([^/]\+\)\.erl')[1]
-	exe "Start rebar eunit suite=" . l:modname . "; read"
+	exe "Start rebar eunit suite=" . l:modname
 endfunction
 
 function! ExunitFile()
-	exe "Start mix test " . @% . "; read"
+	exe "Start mix test " . @%
 endfunction
 
 function! RspecFile()
-	exe "Start bundle exec rspec " . @% . "; read"
+	exe "Start bundle exec rspec " . @%
 endfunction
 
 function! RspecLine()
-	exe "Start bundle exec rspec " . @% . ":" . line(".") . "; read"
+	exe "Start bundle exec rspec " . @% . ":" . line(".")
 endfunction
 
 nnoremap <silent> <leader>c :call ToggleColorColumn()<CR>
