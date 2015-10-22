@@ -14,7 +14,7 @@ set scrolloff=10
 set foldmethod=indent
 set foldlevelstart=99
 set clipboard=unnamed
-set statusline=%f\ %y\ %m\ %=[%l,\ %c]
+set statusline=%f\ %m
 set showtabline=2
 filetype off
 
